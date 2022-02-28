@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.Build.Traversal">
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+
+    <RunCommand>$(BinRoot)\$(Configuration)\HostApp.exe</RunCommand>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="src/NativeHost/*.csproj" />
+    <ProjectReference Include="src/DotNetLib/*.csproj" />
+    <ProjectReference Include="src/HostApp/*.csproj" />
+  </ItemGroup>
+
+</Project>
