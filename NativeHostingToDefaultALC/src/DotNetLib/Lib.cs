@@ -14,10 +14,11 @@ namespace DotNetLib
             public int Number;
         }
 
-        [UnmanagedCallersOnly]
-        public static void CustomEntryPointUnmanaged(LibArgs libArgs)
+        public delegate void CustomEntryPointDelegate(LibArgs libArgs);
+
+        public static void CustomEntryPoint(LibArgs libArgs)
         {
-            Console.WriteLine($"Hello, world! from {nameof(CustomEntryPointUnmanaged)} in {nameof(Lib)}");
+            Console.WriteLine($"Hello, world! from {nameof(CustomEntryPoint)} in {nameof(Lib)}");
             PrintLibArgs(libArgs);
 
             Assembly asm = Assembly.GetExecutingAssembly();

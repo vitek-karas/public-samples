@@ -1,8 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
 using System.Runtime.InteropServices;
 
-Console.WriteLine("Calling to native");
-InjectManaged();
+public class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("Calling to native");
+        InjectManaged();
+    }
 
-[DllImport("nativehost.dll", EntryPoint = "?InjectManaged@@YAHXZ")]
-static extern void InjectManaged();
+    [DllImport("nativehost.dll", EntryPoint = "?InjectManaged@@YAHXZ")]
+    static extern void InjectManaged();
+}

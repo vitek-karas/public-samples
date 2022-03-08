@@ -87,8 +87,8 @@ int __declspec(dllexport) InjectManaged()
     int rc = load_assembly_and_get_function_pointer(
         dotnetlib_path.c_str(),
         dotnet_type,
-        STR("CustomEntryPointUnmanaged") /*method_name*/,
-        UNMANAGEDCALLERSONLY_METHOD,
+        STR("CustomEntryPoint") /*method_name*/,
+        STR("DotNetLib.Lib+CustomEntryPointDelegate, DotNetLib"), /*delegate_type_name*/
         nullptr,
         (void**)&custom);
     assert(rc == 0 && custom != nullptr && "Failure: load_assembly_and_get_function_pointer()");
